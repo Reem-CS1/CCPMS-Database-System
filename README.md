@@ -27,7 +27,7 @@ The relational model consists of the following tables:
 The ER Diagram defines the conceptual model of the CCPMS, illustrating entity sets (MEMBER, PROJECT, TASK, WORKS_ON) and their relationships along with cardinalities.
 
 <p align="center">
-  <img src="Assets/er_diagram.png" width="85%" />
+  <img src="Assets/ER Diagram.png" width="85%" />
 </p>
 
 2. Relational Schema
