@@ -2,7 +2,7 @@
 
 A relational database system designed and implemented in MySQL for the Project Management Committee (PMC) to organize members, projects, tasks, and project participation in a centralized system.
 
-📌 Project Overview
+## 📌 Project Overview
 
 This project provides a normalized database schema and a complete set of DDL, DML, and analytical SQL queries for the Project Management Committee. It manages:
 
@@ -20,7 +20,7 @@ The relational model consists of the following tables:
 - TASK (Description, Task_ID [PK], Status, Deadline, Member_ID [FK], Project_ID [FK])
 - WORKS_ON (Member_ID [FK], Project_ID [FK])
 
-📐 Database Architecture & Design
+## 📐 Database Architecture & Design
 
 1. Entity-Relationship Diagram (ERD)
 
@@ -38,7 +38,7 @@ The relational schema represents the logical structure after normalization, high
   <img src="Assets/relational schema.png" width="45%" />
 </p>
 
-💻 SQL Features Included
+## 💻 SQL Features Included
 
 - DDL (Data Definition Language): Table creation with PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, and CHECK constraints (such as ensuring end date > start date).
 - DML (Data Manipulation Language): Sample data insertions for members, projects, tasks, and work assignments.
@@ -49,7 +49,7 @@ The relational schema represents the logical structure after normalization, high
   - Subqueries filtering member task assignments.
   - Database VIEW creation (`inprogrress_Tasks`) for real-time active task reporting.
 
-🚀 How to Run the Script
+## 🚀 How to Run the Script
 
 1. Open MySQL Workbench or your preferred MySQL client.
 2. Execute the SQL script file to create and populate the database.
@@ -58,16 +58,15 @@ The relational schema represents the logical structure after normalization, high
 
 ## 🏫 Academic Context
 
-> **Course:** CS4108 Advanced Programming / Database Systems  
-> **Institution:** Umm Al-Qura University (جامعة أم القرى)   
+> **Note:** This project was developed as a course project  
 
 ---
 
 ## 👥 Team Contributions
 
-| Student Name | Student ID | Assigned Deliverables & Tasks |
-| :--- | :--- | :--- |
-| **Reem Alzahrani** | 446000386 | Organization Description, Database Creation & Constraints, Basic SELECT Query, Cover Page & TOC. |
-| **Retal Alkabawi** | 446001145 | ER Diagram, Data Insertion & Testing, Aggregate Functions, Assigned Responsibilities Documentation. |
-| **Lama Alkhteeb** | 446001469 | Scenario Development, SQL Code Documentation, JOIN Operation, Conceptual & Logical Design. |
-| **Sahar Alharthi** | 446001215 | Relational Schema, Screenshots & Report Formatting, Subquery & View. |
+| Student Name | Assigned Deliverables & Tasks |
+| :--- | :--- |
+| **Reem Alzahrani** | Organization Description, Database Creation & Constraints, Basic SELECT Query, Cover Page & TOC. |
+| **Retal Alkabawi** | ER Diagram, Data Insertion & Testing, Aggregate Functions, Assigned Responsibilities Documentation. |
+| **Lama Alkhteeb** | Scenario Development, SQL Code Documentation, JOIN Operation, Conceptual & Logical Design. |
+| **Sahar Alharthi** | Relational Schema, Screenshots & Report Formatting, Subquery & View. |
