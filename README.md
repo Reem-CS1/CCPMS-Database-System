@@ -1,65 +1,74 @@
 # 🗄️ Computing Club Project Management System (CCPMS) Database (MySQL)
 
-A relational database system designed and implemented in MySQL for the Project Management Committee (PMC) to organize members, projects, tasks, and project participation in a centralized system.
+A relational database designed and implemented in **MySQL** for the Project Management Committee (PMC) to organize members, projects, tasks, and project participation in a centralized system.
 
 ## 📌 Project Overview
 
-This project provides a normalized database schema and a complete set of DDL, DML, and analytical SQL queries for the Project Management Committee. It manages:
+The database improves tracking, coordination, and decision-making by storing project timelines, task assignments, and member involvement. It manages:
 
-- Members: Personal details (First, Middle, Last names), academic majors, and unique identifiers.
-- Projects: Project titles, unique IDs, and timeline schedules (Start and End Dates with validation constraints).
-- Tasks: Task descriptions, status tracking (pending, in progress, completed), deadlines, and associations with members and projects.
-- Works On: Many-to-many relationship mapping between members and their assigned projects.
+- **Members:** personal details (first, middle, last name), academic major, and a unique identifier.
+- **Projects:** title, unique ID, and a timeline (start and end dates) with validation constraints.
+- **Tasks:** description, status (pending / in progress / completed), deadline, and links to the assigned member and project.
+- **Works On:** a many-to-many relationship between members and the projects they participate in.
+ 
+---
 
-🗄️ Database Schema & Entities
+## 🗄️ Database Schema
 
-The relational model consists of the following tables:
+| Table | Columns | Keys & Constraints |
+|---|---|---|
+| `membeer` | `Fname`, `Mname`, `Lname`, `memberid`, `major` | PK: `memberid` · `Fname`, `Lname` NOT NULL |
+| `project` | `title`, `projectid`, `startdate`, `enddate` | PK: `projectid` · `title` UNIQUE · CHECK `enddate > startdate` |
+| `task` | `descriptionn`, `taskid`, `statuss`, `deadline`, `memberid`, `projectid` | PK: `taskid` · FK → `membeer`, `project` · `statuss` NOT NULL (ENUM) |
+| `workson` | `memberid`, `projectid` | FK → `membeer`, `project` |
 
-- MEMBER (Fname, Mname, Lname, Member_ID [PK], Major)
-- PROJECT (Title, Project_ID [PK], StartDate, EndDate)
-- TASK (Description, Task_ID [PK], Status, Deadline, Member_ID [FK], Project_ID [FK])
-- WORKS_ON (Member_ID [FK], Project_ID [FK])
+---
 
-## 📐 Database Architecture & Design
+## 📐 Database Design
 
-1. Entity-Relationship Diagram (ERD)
+### Entity-Relationship Diagram (ERD)
 
-The ER Diagram defines the conceptual model of the CCPMS, illustrating entity sets (MEMBER, PROJECT, TASK, WORKS_ON) and their relationships along with cardinalities.
+The ER diagram defines the conceptual model: entity sets (MEMBER, PROJECT, TASK), the WORKS_ON, HAS, and ASSIGNED_TO relationships, and their cardinalities.
 
-<p align="left">
-  <img src="Assets/ER Diagram.png" width="45%" />
+<p align="center">
+  <img src="images/ER Diagram.png" alt="ER Diagram" width="800">
 </p>
 
-2. Relational Schema
+### Relational Schema
 
-The relational schema represents the logical structure after normalization, highlighting Primary Keys (underlined) and Foreign Key mappings across all entities.
+The logical structure after mapping the ERD, with primary keys underlined and foreign key mappings across all entities.
 
-<p align="left">
-  <img src="Assets/relational schema.png" width="45%" />
+<p align="center">
+  <img src="images/relational schema.png" alt="relational schema.png" width="800">
 </p>
+
+---
 
 ## 💻 SQL Features Included
 
-- DDL (Data Definition Language): Table creation with PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, and CHECK constraints (such as ensuring end date > start date).
-- DML (Data Manipulation Language): Sample data insertions for members, projects, tasks, and work assignments.
-- DQL (Queries & Analytics):
-  - Basic SELECT queries with WHERE filtering conditions.
-  - Aggregation functions (`COUNT`, `GROUP BY`) to track project metrics and member distribution by major.
-  - JOIN queries connecting tasks, members, and projects.
-  - Subqueries filtering member task assignments.
-  - Database VIEW creation (`inprogrress_Tasks`) for real-time active task reporting.
+- **DDL:** `CREATE DATABASE`, `CREATE TABLE`, and `ALTER TABLE` with `PRIMARY KEY`, `FOREIGN KEY`, `UNIQUE`, `NOT NULL`, and `CHECK` constraints (e.g., end date must be after start date).
+- **DML:** sample inserts for 8 members, 5 projects, 10 tasks, and 12 work assignments.
+- **DQL:**
+  - Basic `SELECT` with a `WHERE` filter.
+  - Aggregation with `COUNT` and `GROUP BY`.
+  - `JOIN` across tasks, members, and projects.
+  - Subquery using `IN`.
+  - A `VIEW` (`inprogrress_Tasks`) for active-task reporting.
+
+---
 
 ## 🚀 How to Run the Script
 
-1. Open MySQL Workbench or your preferred MySQL client.
-2. Execute the SQL script file to create and populate the database.
+1. Open MySQL Workbench and connect to your server.
+2. Open the script file (`CCPMS.sql`) via **File → Open SQL Script**.
+3. Click the ⚡ **Execute** button.
 
 ---
 
 ## 🏫 Academic Context
 
-> **Note:** This project was developed as a course project  
-
+> **Note:** This project was developed as a course project , covering conceptual design (ERD), logical design (relational schema), implementation (DDL/DML), and querying (DQL).
+  
 ---
 
 ## 👥 Team Contributions
