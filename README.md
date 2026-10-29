@@ -30,16 +30,16 @@ The database improves tracking, coordination, and decision-making by storing pro
 
 The ER diagram defines the conceptual model: entity sets (MEMBER, PROJECT, TASK), the WORKS_ON, HAS, and ASSIGNED_TO relationships, and their cardinalities.
 
-<p align="center">
-  <img src="images/ER Diagram.png" alt="ER Diagram" width="800">
+<p align="left">
+  <img src="Assets/ER Diagram.png" alt="ER Diagram" width="400">
 </p>
 
 ### Relational Schema
 
 The logical structure after mapping the ERD, with primary keys underlined and foreign key mappings across all entities.
 
-<p align="center">
-  <img src="images/relational schema.png" alt="relational schema.png" width="800">
+<p align="left">
+  <img src="Assets/relational schema.png" alt="relational schema.png" width="400">
 </p>
 
 ---
